@@ -58,3 +58,30 @@ table {
   font-family: "Inter";
   src: url(../../fonts/Inter/Inter-VariableFont_slnt\,wght.ttf);
 }/*# sourceMappingURL=index.css.map */
+
+
+
+.form{
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #f2f2f2;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e0e0e0;
+}
