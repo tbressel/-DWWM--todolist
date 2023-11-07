@@ -1,0 +1,22 @@
+.header__countainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: aqua;
+}
+.header__countainer .header__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.header__countainer .header__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.header__countainer .header__list .btn__task {
+  background-color: red;
+}
+.header__countainer .header__list .btn__new {
+  background-color: green;
+}/*# sourceMappingURL=header.css.map */

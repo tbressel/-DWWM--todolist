@@ -12,7 +12,7 @@ $currentPage = getCurrentPageData($pages);
     <meta name=" robots" content=" index, follow">
 
     <link rel="icon" href="./favicon.ico">
-    <link rel="stylesheet" type="text/css" href="./assets/style/css/index.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./assets/style/index.css" media="screen">
 </head>
 
 
