@@ -9,8 +9,6 @@ include_once 'includes/_head.php';
 <?php include_once './components/header/header.php';?>
 
 
-
-
 <script src="./assets/scripts/script.js"></script>
 
 </body>
