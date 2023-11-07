@@ -1,12 +1,11 @@
+
 <?php
 
 echo'
-<form name="example_ form" action="html-form-tag-example.html" >
-    <label for=""></label>
-task_name: <input type="text" name="" id="" size="20" placeholder="remplissez le champ de text" required/><br /><br />
-
-
-<input type="submit" value="Submit" / >
+<form action="" method="GET">
+    <label for="task_field"></label>
+        <input type="text" name="task_name" id="task_field" placeholder="enter a new task" maxlength="25" required>
+    <input type="submit" value="envoyer">
 </form>'
 
 ?>
