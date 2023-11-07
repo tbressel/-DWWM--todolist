@@ -1,9 +1,13 @@
 // import des fichiers de settings
 @import './reset.scss';
 @import './variables.scss';
-// @import './global.scss';
+
 
 
 
 // import des composants
 @import '../../components/header/header.scss';
+@import '../../components/task/task.scss';
+@import '../../components/form/form.scss';
+
+
