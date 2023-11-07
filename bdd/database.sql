@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS task (
 
 
 
-INSERT INTO task (name, description, remind_date, state, priority)
-VALUES
-    (),
+-- INSERT INTO task (name, description, remind_date, state, priority)
+-- VALUES
+--     (),
 
