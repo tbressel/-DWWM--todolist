@@ -2,7 +2,7 @@
 include_once 'includes/_config.php';
 require_once 'includes/_functions.php';
 include_once 'includes/_head.php';
-?>    
+?>
 
 <body>
 
@@ -14,15 +14,11 @@ include_once 'includes/_head.php';
 <title>Projet todo list</title>
 </head>
 <body>
-<form name="example_ form" action="html-form-tag-example.html" >
-    <label for=""></label>
-task_name: <input type="text" name="" id="" size="25" placeholder="remplissez le champ de text" required/><br /><br />
-
-
-<input type="submit" value="Submit" / >
-</form>
+<?php include_once './components/header/header.php';?>
+<?php include_once './components/form/form.php';?>
 </body>
 </html>
+
 
 
 
@@ -32,4 +28,5 @@ task_name: <input type="text" name="" id="" size="25" placeholder="remplissez le
 <script src="./assets/scripts/script.js"></script>
 
 </body>
+
 </html>
