@@ -15,8 +15,8 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-  margin: 0;
-  padding: 0;
+  margin: 20;
+  padding: 20;
   border: 0;
   font-size: 100%;
   font: inherit;
@@ -61,8 +61,8 @@ table {
 
 
 
-.form{
-  margin-bottom: 20px;
+form{
+  margin-bottom: 40px;
 }
 
 label {
@@ -76,7 +76,8 @@ input, textarea {
 }
 
 button {
-  padding: 10px 20px;
+  width: 100%;
+  padding: 25px 20px;
   background-color: #f2f2f2;
   border: none;
   cursor: pointer;
