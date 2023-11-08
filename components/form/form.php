@@ -1,12 +1,10 @@
+
 <?php
-
-echo'
-<form name="example_ form" action="html-form-tag-example.html" >
-    <label for=""></label>
-task_name: <input type="text" name="" id="" size="20" placeholder="remplissez le champ de text" required/><br /><br />
-
-
-<input type="submit" value="Submit" / >
-</form>'
-
+echo '
+<form action="includes/addtask.php" method="POST">
+    <label for="task_field">Task Name:</label>
+    <input type="text" name="task_name" id="task_field" placeholder="Enter a new task" maxlength="25" required>
+    <input type="hidden" name="token" value="' . $_SESSION['token'] . '">
+    <input type="submit" value="Envoyer">
+</form>';
 ?>

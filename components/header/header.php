@@ -1,5 +1,4 @@
 <?php
-
 echo '<header class="header__countainer">
         <div class="header__title">
             <h1>To Do List Application</h1>
@@ -17,6 +16,4 @@ echo '<header class="header__countainer">
             </li>
         </ul>
 </header>'
-
-
 ?>
