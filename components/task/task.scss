@@ -1,18 +1,30 @@
 .main__container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+
+    border: 1px black solid;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+    
 
     .left__container {
         display: flex;
         flex-direction: column;
+ 
 
         .top__container {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
+            align-items: center;
+
 
             .top__container--task_name {
-                background-color: rgb(159, 159, 39);
+                margin: 10px;
+                font-size: 2.2rem;
+                align-items: center;
             }
         }
         .bot__container {
@@ -24,7 +36,7 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;
-
+               
                 padding: 0.5rem;
 
 
@@ -50,12 +62,13 @@
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        background-color: rgb(105, 128, 0);
+        align-items: center;
+       
 
         .right__container--arrows {
             display: flex;
             flex-direction: column;
-            background-color: rgb(118, 13, 147);
+           
         }
     }
 }

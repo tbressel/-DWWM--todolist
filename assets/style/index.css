@@ -58,21 +58,26 @@ table {
   font-family: "Inter";
   src: url(../../fonts/Inter/Inter-VariableFont_slnt\,wght.ttf);
 }
+.btn {
+  font-size: 2rem;
+  margin: 10px;
+}
+
 .header__countainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(195, 255, 0);
+  background-color: #e0e0e0;
   padding: 1.2rem;
 }
-.header__countainer .header__title {
+.header__countainer .header__logo {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.header__countainer .header__title h1 {
-  font-family: Inter;
-  font-size: 1.3rem;
+.header__countainer .header__logo img {
+  width: auto;
+  height: auto;
 }
 .header__countainer .header__list {
   display: flex;
@@ -98,6 +103,11 @@ table {
 .main__container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  border: 1px black solid;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
 }
 .main__container .left__container {
   display: flex;
@@ -107,6 +117,12 @@ table {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
+}
+.main__container .left__container .top__container .top__container--task_name {
+  margin: 10px;
+  font-size: 2.2rem;
+  align-items: center;
 }
 .main__container .left__container .bot__container {
   display: flex;
@@ -137,12 +153,11 @@ table {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: rgb(105, 128, 0);
+  align-items: center;
 }
 .main__container .right__container .right__container--arrows {
   display: flex;
   flex-direction: column;
-  background-color: rgb(118, 13, 147);
 }
 
 input[type=checkbox] {
