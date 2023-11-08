@@ -25,3 +25,11 @@ form{
   button:hover {
     background-color: #e0e0e0;
   }
+
+
+    .addform__container {
+      position: relative;
+      top: -95px;
+      z-index: -1;
+  }
+ 

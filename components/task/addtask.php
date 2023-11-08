@@ -41,3 +41,5 @@ if (isset($_POST['token']) && isset($_SESSION['token']) && $_SESSION['token'] ==
             // ]);
         }
 
+        header('Location:../../index.php'); 
+        exit();
