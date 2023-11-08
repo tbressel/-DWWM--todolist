@@ -16,12 +16,8 @@ CREATE TABLE IF NOT EXISTS task (
 
 
 
--- INSERT INTO task (name, description, remind_date, state, priority)
--- VALUES
---     (),
-
-
-('Passer le balais','0','1'),
+INSERT INTO task (name, description, remind_date, state, priority)
+VALUES ('Passer le balais','0','1'),
     ('Faire la vaisselle','0','2'),
     ('Aspirer le tapis','0','3'),
     ('Faire les courses','0','4')
