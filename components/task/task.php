@@ -1,3 +1,9 @@
+<a href="">
+    <img src="" alt="">
+</a>
+
+
+
 <?php
 $query = $connexion->prepare('SELECT * FROM task');
 $query->execute();
@@ -9,6 +15,8 @@ foreach ($taskList as $task) {
     <div class=\"main__container\">
         <div class=\"left__container\">
             <div class=\"top__container\">
+
+
                 <input type=\"checkbox\" id=\"task_state\">
                 <div class=\"top__container--task_name\">
                     <p>" . $task['task_name'] . "</p>
