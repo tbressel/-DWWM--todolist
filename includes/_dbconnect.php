@@ -1,4 +1,8 @@
 <?php
+
+
+
+
 try {
     $connexion = new PDO(
         'mysql:host=localhost;dbname=TODOLIST;charset=utf8mb4',
@@ -10,5 +14,4 @@ try {
     echo 'Erreur : ' . $getError->getMessage();
     die();
 }
-
 

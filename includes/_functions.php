@@ -47,3 +47,5 @@ function getLanguageType(array $pages): string
 };
 
 
+
+
