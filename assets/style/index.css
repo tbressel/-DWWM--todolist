@@ -108,9 +108,6 @@ table {
   flex-direction: row;
   justify-content: flex-start;
 }
-.main__container .left__container .top__container .top__container--task_name {
-  background-color: rgb(159, 159, 39);
-}
 .main__container .left__container .bot__container {
   display: flex;
   flex-direction: row;

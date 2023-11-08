@@ -6,12 +6,10 @@ include '../../includes/_dbconnect.php';
 // - une clé 'token' est définie dans le tableau $_POST ET $_SESSION
 // ET si 
 // - ces données de ces deux clées sont sctrictement identiques
-var_dump($connexion);
+
 
 session_start();
 
-var_dump($_SESSION);
-var_dump($_GET);
  
 // Supprime une tâche
 if (isset($_GET['id_task'])) {
