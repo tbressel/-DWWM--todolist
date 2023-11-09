@@ -8,9 +8,9 @@ include 'includes/_session.php';
 
 <body>
 
-<?php include_once './components/header/header.php';?>
-<?php include_once './components/form/form.php';?>
-<?php include_once './components/task/task.php';?>
+<?php include './components/header/header.php';?>
+<?php include './components/form/form.php';?>
+<?php include './components/task/task.php';?>
 
 <script src="./assets/scripts/script.js"></script>
 

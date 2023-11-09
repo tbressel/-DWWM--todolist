@@ -16,15 +16,15 @@ CREATE TABLE `task` (
 -- Déchargement des données de la table `task`
 --
 ​
-INSERT INTO `task` (`id_task`, `task_name`, `task_state`, `task_priority`) VALUES
-(1, 'Passer le balais', 0, 1),
-(2, 'Faire la vaisselle', 0, 2),
-(3, 'Aspirer le tapis', 0, 3),
-(4, 'Faire les courses', 0, 4),
-(7, 'nouvelle taches', 0, 0),
-(8, 'coucou', 0, 0),
-(9, 'coucoucouc', 0, 0),
-(10, 'thomas', 0, 0);
+INSERT INTO `task` (`id_task`, `task_name`, `task_state`, `task_priority`, `task_order`) VALUES
+(1, 'Passer le balais', 0, 1,1),
+(2, 'Faire la vaisselle', 0, 2,2),
+(3, 'Aspirer le tapis', 0, 3,3),
+(4, 'Faire les courses', 0, 4,4),
+(5, 'nouvelle taches', 0, 0,5),
+(6, 'coucou', 0, 0,6),
+(7, 'coucoucouc', 0, 0,7),
+(8, 'thomas', 0, 8,8);
 ​
 --
 -- Index pour les tables déchargées

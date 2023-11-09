@@ -10,8 +10,8 @@ if (isset($_POST['token']) && isset($_SESSION['token']) && $_SESSION['token'] ==
  $task_name = strip_tags($_POST['task_name']);
     if (strlen($task_name) > 0) {
         // on prépare la requête en récupérant la variable $task_name du formulaire dans le PDO
-         $query = $connexion->prepare('INSERT INTO task (task_name, task_state, task_priority)
-     VALUES (:task_name,0,0)');
+         $query = $connexion->prepare('INSERT INTO task (task_name, task_state, task_priority, task_order)
+     VALUES (:task_name,0,0,0)');
 
 
 // METHODE 1

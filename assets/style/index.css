@@ -59,8 +59,16 @@ table {
   src: url(../../fonts/Inter/Inter-VariableFont_slnt\,wght.ttf);
 }
 .btn {
+  cursor: pointer;
   font-size: 2rem;
-  margin: 10px;
+  margin: 5px;
+  padding: 8px;
+  transition: ease-in-out 300ms;
+  border-radius: 8px;
+}
+.btn:hover {
+  background-color: #384d46;
+  transition: ease-in-out 300ms;
 }
 
 .header__countainer {
@@ -195,4 +203,10 @@ button:hover {
   position: relative;
   top: -95px;
   z-index: -1;
+  transition: ease-in-out 300ms;
+}
+.addform__container.active {
+  top: 0px;
+  transition: ease-in-out 300ms;
+  z-index: 0;
 }

@@ -28,4 +28,10 @@ button:hover {
   position: relative;
   top: -95px;
   z-index: -1;
+  transition: ease-in-out 300ms;
+}
+.addform__container.active {
+  top: 0px;
+  transition: ease-in-out 300ms;
+  z-index: 0;
 }

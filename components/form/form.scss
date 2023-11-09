@@ -31,5 +31,12 @@ form{
       position: relative;
       top: -95px;
       z-index: -1;
+      transition: ease-in-out 300ms;
+
+      &.active {
+        top: 0px;
+        transition: ease-in-out 300ms;
+        z-index: 0;
+      }
   }
  

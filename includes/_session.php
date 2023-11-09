@@ -3,4 +3,10 @@
 session_start();
 generateToken();
 
+
+
+
+
+
+
 ?>

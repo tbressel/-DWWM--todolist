@@ -2,7 +2,7 @@
     <div class="header__logo">
         <img src="assets/img/logo.webp" alt="">
     </div>
-    <ul class="header__list">
-        <li class="btn"> 🆕 </li>
-    </ul>
+    <div class="header__list">
+        <p id="new-btn" class="btn"> 🆕 </p>
+</div>
 </header>

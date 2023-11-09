@@ -1,4 +1,12 @@
 .btn {
+  cursor: pointer;
   font-size: 2rem;
-  margin: 10px;
+  margin: 5px;
+  padding: 8px;
+  transition: ease-in-out 300ms;
+  border-radius: 8px;
+}
+.btn:hover {
+  background-color: #384d46;
+  transition: ease-in-out 300ms;
 }
