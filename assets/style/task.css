@@ -4,8 +4,7 @@
   justify-content: space-between;
   border: 1px black solid;
   border-radius: 10px;
-  margin: 5px;
-  padding: 10px;
+  margin: 13px;
 }
 .main__container .left__container {
   display: flex;
