@@ -6,12 +6,16 @@
     border: 1px black solid;
     border-radius: 10px;
     margin: 13px;
-    
+    padding: 5px;
+
+
 
     .left__container {
         display: flex;
         flex-direction: column;
- 
+        width: 100%;
+        justify-content: center;
+
 
         .top__container {
             display: flex;
@@ -26,6 +30,7 @@
                 align-items: center;
             }
         }
+
         .bot__container {
             display: flex;
             flex-direction: row;
@@ -35,7 +40,7 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;
-               
+
                 padding: 0.5rem;
 
 
@@ -57,21 +62,40 @@
             }
         }
     }
+
     .right__container {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-       
+
 
         .right__container--arrows {
             display: flex;
             flex-direction: column;
-           
+
         }
     }
 }
-input[type="checkbox"] {
-    width: 40px;
-    height: 40px;
+
+.youpi {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    font-size: 10rem;
+    margin: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.remind_date form {
+        
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
 }

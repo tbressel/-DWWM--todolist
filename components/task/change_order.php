@@ -9,11 +9,7 @@ if (isset($_GET['id']) && isset($_GET['action'])) {
     // Get id_order by the id_task
     $currentOrder = $connexion->prepare('SELECT task_order FROM task WHERE id_task = :task_id');
     $currentOrder->bindValue(':task_id', $task_id, PDO::PARAM_INT);
-
-    // query executed
     $currentOrder->execute();
-
-    // get array with the result of the query
     $currentOrderResult = $currentOrder->fetch();
 
     // get int number from task_order of the chosen task    

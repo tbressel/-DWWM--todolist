@@ -58,16 +58,38 @@ table {
   font-family: "Inter";
   src: url(../../fonts/Inter/Inter-VariableFont_slnt\,wght.ttf);
 }
+body {
+  min-width: 400px;
+}
+
+p {
+  display: flex;
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+
 .btn {
   cursor: pointer;
-  font-size: 2rem;
-  padding: 2px;
+  font-size: 1.8rem;
+  padding: 5px;
   transition: ease-in-out 300ms;
   border-radius: 8px;
 }
 .btn:hover {
   background-color: #384d46;
   transition: ease-in-out 300ms;
+}
+
+.notification {
+  margin: 10px;
+  padding: 5px;
+  background-color: antiquewhite;
+  border: solid 1px darkgrey;
+  border-radius: 10px;
 }
 
 .header__countainer {
@@ -83,7 +105,7 @@ table {
   justify-content: center;
 }
 .header__countainer .header__logo img {
-  width: auto;
+  width: 100%;
   height: auto;
 }
 .header__countainer .header__list {
@@ -114,10 +136,13 @@ table {
   border: 1px black solid;
   border-radius: 10px;
   margin: 13px;
+  padding: 5px;
 }
 .main__container .left__container {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  justify-content: center;
 }
 .main__container .left__container .top__container {
   display: flex;
@@ -166,13 +191,23 @@ table {
   flex-direction: column;
 }
 
-input[type=checkbox] {
-  width: 40px;
-  height: 40px;
+.youpi {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  font-size: 10rem;
+  margin: 20px;
 }
 
-form {
+.hidden {
+  display: none;
+}
+
+.remind_date form {
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 label {
@@ -181,30 +216,46 @@ label {
 }
 
 input, textarea {
-  width: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
   padding: 10px;
 }
 
 button {
-  width: 100%;
-  padding: 20px 20px;
-  background-color: #f2f2f2;
+  padding: 5px 5px;
+  background-color: grey;
+  border-radius: 5px;
   border: none;
+  font-size: 1.8rem;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #e0e0e0;
+  background-color: #384d46;
+  transition: ease-in-out 300ms;
 }
 
 .addform__container {
-  position: relative;
-  top: -95px;
+  position: absolute;
+  top: -99px;
+  width: 90vw;
+  margin: 5px;
+  padding: 5px;
   z-index: -1;
+  background-color: antiquewhite;
+  border: solid 1px grey;
+  border-radius: 10px;
   transition: ease-in-out 300ms;
 }
 .addform__container.active {
   top: 0px;
   transition: ease-in-out 300ms;
   z-index: 0;
+}
+.addform__container form {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }

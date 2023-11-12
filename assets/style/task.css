@@ -5,10 +5,13 @@
   border: 1px black solid;
   border-radius: 10px;
   margin: 13px;
+  padding: 5px;
 }
 .main__container .left__container {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  justify-content: center;
 }
 .main__container .left__container .top__container {
   display: flex;
@@ -57,7 +60,21 @@
   flex-direction: column;
 }
 
-input[type=checkbox] {
-  width: 40px;
-  height: 40px;
+.youpi {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  font-size: 10rem;
+  margin: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.remind_date form {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

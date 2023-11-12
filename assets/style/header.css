@@ -11,7 +11,7 @@
   justify-content: center;
 }
 .header__countainer .header__logo img {
-  width: auto;
+  width: 100%;
   height: auto;
 }
 .header__countainer .header__list {
