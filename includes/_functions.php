@@ -69,11 +69,12 @@ function checkCSRF(string $url): void
         $_SESSION['error'] = 'error_token';
     }
 
-    if (isset($_SESSION['error'])) {
+    if (isset($_SESSION['error'])) return;
+    
         header('Location: ' . $url);
         exit;
     }
-}
+
 
 
 function bddConnexion() {
@@ -152,4 +153,24 @@ function showMessages(string $action): void
         }
         break;
     }
+}
+
+
+function getIdentification(string $path): void {
+    $fichier_env = file($path);
+    if ($fichier_env) {
+        foreach ($fichier_env as $line) {
+            $result = preg_match('/\"(.*?)\"/', $line, $matches);
+            if ($result) {
+                $parts = explode("=", $line);
+                $value = $matches[1];
+                $key = trim($parts[0]);
+                $_ENV[$key] = $value;
+            }
+        }       
+    } else {
+        echo "Erreur lors de la lecture du fichier .env";
+    }
+
+
 }

@@ -1,7 +1,7 @@
 <?php
-include '../../includes/_dbconnect.php';
 include '../../includes/_functions.php';
-
+getIdentification("../../.env");
+include '../../includes/_dbconnect.php';
 session_start();
 
 // checkCSRF('http://localhost/todolist/');
