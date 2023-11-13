@@ -15,19 +15,8 @@ if (isset($_POST['token']) && isset($_SESSION['token']) && hash_equals($_SESSION
     
     // check the length of the data
     if (strlen($task_name) > 0) {
-        
-        //  query prepare to get max value from task order column
-        $query = $connexion->prepare('SELECT MAX(task_order) AS max_order FROM task');
-        // query exectution
-        $query->execute();
-        // get data from query
-        $queryResult = $query->fetch();
-        // read into the array to get a INT value
-        $max_order = $queryResult['max_order'];
-        // increment it
-        $max_order++;
-        
-        
+        $max_order = getMaxOrder($connexion);
+                
         $task_date = new DateTime();
         $task_date = $task_date->format('Y-m-d');
         // query preparation with PDO datas

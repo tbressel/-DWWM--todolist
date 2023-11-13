@@ -24,7 +24,6 @@ function getCurrentPageData(array $pages): ?array
     //     }
     // }
     // return NULL;
-
     return current(array_filter($pages, fn ($p) => $p['file'] === getCurrentPageName()));
 }
 
@@ -46,8 +45,12 @@ function getLanguageType(array $pages): string
 
 };
 
-
-function generateToken() {
+/**
+ * getnerate a new token and an expiration date 
+ *
+ * @return void
+ */
+function generateToken():void {
     // Si le jeton n'est pas défini OU que l'heure actuelle est supérieure à l'heure d'expiration du jeton
     // alors on régénère un jeton ET une nouvelle heure d'expiration
     if (!isset($_SESSION['token']) || time() > $_SESSION['tokenExpire']) {
@@ -57,8 +60,12 @@ function generateToken() {
 }
 
 
-
-
+/**
+ * check if token is created and if request doesn't come from another website
+ *
+ * @param string $url
+ * @return void
+ */
 function checkCSRF(string $url): void 
 {
     if (!isset($_SERVER['HTTP_REFERER']) || !str_contains($_SERVER['HTTP_REFERER'], 'http://localhost/todolist/')) {
@@ -76,35 +83,33 @@ function checkCSRF(string $url): void
     }
 
 
-
-function bddConnexion() {
-    try {
-        $connexion = new PDO(
-            'mysql:host=localhost;dbname=TODOLIST;charset=utf8mb4',
-            'zisquier',
-            'pass');
-        $connexion -> setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        return $connexion;
-    
-    } catch (PDOException $getError) {
-        echo 'Erreur : ' . $getError->getMessage();
-        die();
-    }
-}
-
-
+/**
+ * get the max value from database
+ *
+ * @param [type] $connexion
+ * @return void
+ */
 function getMaxOrder ($connexion) {
+    //  query prepare to get max value from task order column
     $query = $connexion->prepare('SELECT MAX(task_order) AS max_order FROM task');
+    // query exectution
     $query->execute();
+    // get data from query
     $queryResult = $query->fetch();
+    // read into the array to get a INT value
     $max_order = $queryResult['max_order'];
-    var_dump($queryResult);
-    return $max_order + 1;
+    // increment it
+   return $max_order + 1;
 }
 
 
 
-
+/**
+ * display notification depending the action passed in parameter
+ *
+ * @param string $action
+ * @return void
+ */
 function showMessages(string $action): void
 {
     global $isQueryOK;
@@ -155,7 +160,12 @@ function showMessages(string $action): void
     }
 }
 
-
+/**
+ * get values from the file .env to write them into $_ENV
+ *
+ * @param string $path
+ * @return void
+ */
 function getIdentification(string $path): void {
     $fichier_env = file($path);
     if ($fichier_env) {
@@ -171,6 +181,4 @@ function getIdentification(string $path): void {
     } else {
         echo "Erreur lors de la lecture du fichier .env";
     }
-
-
 }

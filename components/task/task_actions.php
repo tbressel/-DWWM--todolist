@@ -1,4 +1,8 @@
 <?php
+
+// var_dump(__DIR__);
+// exit();
+
 include '../../includes/_functions.php';
 getIdentification("../../.env");
 include '../../includes/_dbconnect.php';
