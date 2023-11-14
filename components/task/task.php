@@ -11,7 +11,7 @@ if (!empty($taskList)) {
         $taskDate = new DateTime($task['task_date']);
 ?>
         <ul>
-            <li class="main__container" data-id="<?= $task['id_task'] ?>">
+            <li class="main__container">
 
                 <div class="left__container">
                     <?php
@@ -20,6 +20,7 @@ if (!empty($taskList)) {
                     } ?>
                     <div class="top__container">
                         <a href="components/task/task_actions.php?action=done&token=<?= $_SESSION['token'] ?>&id=<?= $task['id_task'] ?>"><span class="btn">☑️</span></a>
+                        <p id="label-btn" data-id="<?= $task['id_task'] ?>" class="btn">🗃️</p>
                         <div class="top__container--task_name">
 
                             <form action="components/task/task_actions.php" method="POST">

@@ -89,18 +89,26 @@ function checkCSRF(string $url): void
  * @param [type] $connexion
  * @return void
  */
-function getMaxOrder ($connexion) {
-    //  query prepare to get max value from task order column
-    $query = $connexion->prepare('SELECT MAX(task_order) AS max_order FROM task');
-    // query exectution
-    $query->execute();
-    // get data from query
-    $queryResult = $query->fetch();
-    // read into the array to get a INT value
-    $max_order = $queryResult['max_order'];
-    // increment it
-   return $max_order + 1;
-}
+// function getMaxOrder (PDO $connexion) : int {
+//     //  query prepare to get max value from task order column
+//     $query = $connexion->prepare('SELECT IFNULL(MAX(task_order),0) + 1)  AS max_order FROM task');
+//     // query exectution
+//     $isOK = $query->execute();
+//     // get data from query
+//     return $isOK ? $query->fetchColumn() : null;
+// }
+ function getMaxOrder (PDO $connexion) : int {
+     //  query prepare to get max value from task order column
+     $query = $connexion->prepare('SELECT MAX(task_order)  AS max_order FROM task');
+     // query exectution
+     $query->execute();
+     // get data from query
+     $queryResult = $query->fetch();
+     // read into the array to get a INT value
+     $max_order = $queryResult['max_order'];
+     // increment it
+    return $max_order + 1;
+ }
 
 
 

@@ -14,9 +14,21 @@ if (isset($_GET['action']) || isset($_POST['action'])) {
     if (isset($_GET['action']) && $_GET['action'] === 'delete') {
         if (isset($_GET['id'])) {
             $id = htmlspecialchars($_GET['id']);
+            
+      
+
+            $query = $connexion->prepare('DELETE FROM have WHERE id_task = :id');
+            $query->bindValue(':id', $id, PDO::PARAM_INT);
+            $isQueryOK = $query->execute();
+
+
+
+
             $query = $connexion->prepare('DELETE FROM task WHERE id_task = :id');
             $query->bindValue(':id', $id, PDO::PARAM_INT);
             $isQueryOK = $query->execute();
+
+      
             showMessages("delete");
         }
 

@@ -1,0 +1,43 @@
+.labelList__container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: -99px;
+  width: 90vw;
+  margin: 5px;
+  padding: 5px;
+  z-index: -1;
+  background-color: antiquewhite;
+  border: solid 1px grey;
+  border-radius: 10px;
+  transition: ease-in-out 300ms;
+}
+.labelList__container.active {
+  top: 0px;
+  transition: ease-in-out 300ms;
+  z-index: 0;
+}
+.labelList__container form {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.labelList__container form input[type=checkbox].demo {
+  display: none;
+}
+.labelList__container form input[type=checkbox].demo + label {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px;
+}
+.labelList__container form input[type=checkbox].demo + label:hover {
+  background-color: rgb(163, 241, 241);
+}
+.labelList__container form input[type=checkbox].demo:checked + label {
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(132, 236, 236);
+}

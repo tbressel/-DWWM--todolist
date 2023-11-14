@@ -15,6 +15,8 @@ if (isset($_POST['token']) && isset($_SESSION['token']) && hash_equals($_SESSION
     
     // check the length of the data
     if (strlen($task_name) > 0) {
+        $connexion->beginTransaction();
+
         $max_order = getMaxOrder($connexion);
                 
         $task_date = new DateTime();
@@ -28,6 +30,9 @@ if (isset($_POST['token']) && isset($_SESSION['token']) && hash_equals($_SESSION
         $query->bindValue(':task_date', $task_date, PDO::PARAM_STR);
         // query execution get into antoher variable for check into getMessages function
         $isQueryOK = $query->execute();
+
+        $connexion->commit();
+
         showMessages("add");
 
     } else {

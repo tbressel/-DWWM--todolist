@@ -3,7 +3,9 @@
 include_once 'includes/_config.php';
 include 'includes/_functions.php';
 include_once 'includes/_head.php';
+
 getIdentification("./.env");
+
 include 'includes/_dbconnect.php';
 
 session_start();
@@ -27,6 +29,7 @@ if (isset($_SESSION['error'])) {
 
 <?php include './components/header/header.php';?>
 <?php include './components/form/form.php';?> 
+<?php include './components/label/label.php';?> 
 
 
 <div id="tasksList__container" class="">
