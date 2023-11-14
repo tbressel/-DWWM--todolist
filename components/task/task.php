@@ -1,18 +1,24 @@
 <?php
+// get actual date and convert format into string
 $actualDate = new DateTime('today');
 $actualDateString = $actualDate->format('Y-m-d');
-// $query = $connexion->prepare('SELECT * FROM task WHERE task_state = 0 ORDER BY id_task DESC');
+
+//  query to list all tasks not done yet
+// $query = $connexion->prepare('SELECT * FROM have JOIN task USING(id_task) JOIN theme USING(id_theme)
+//WHERE task_state = 0  ORDER BY task_order DESC');
 $query = $connexion->prepare('SELECT * FROM task WHERE task_state = 0 ORDER BY task_order DESC');
 $query->execute();
 $taskList = $query->fetchAll();
+
+
+// check if task list is not empty
 if (!empty($taskList)) {
+    // loop on the array to read each entries
     foreach ($taskList as $task) {
-        
         $taskDate = new DateTime($task['task_date']);
 ?>
         <ul>
             <li class="main__container">
-
                 <div class="left__container">
                     <?php
                     if ($taskDate == $actualDate) {
@@ -39,11 +45,16 @@ if (!empty($taskList)) {
                             <input type="hidden" name="id_task" value="<?= $task['id_task'] ?>">
                             <input type="hidden" name="action" value="date">
                             <label for="new_date">Date de rappel:</label>
-
                             <input type="date" id="new_date" name="new_date" value="<?= $task['task_date'] ?>" min="<?= $actualDateString ?>">
                             <input type="submit" value="✒️">
                         </form>
                     </div>
+                    <ul class="labelslist__container">
+
+<li>
+
+</li>
+                </ul>
                 </div>
                 <div class="right__container">
 

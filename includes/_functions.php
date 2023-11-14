@@ -190,3 +190,5 @@ function getIdentification(string $path): void {
         echo "Erreur lors de la lecture du fichier .env";
     }
 }
+
+

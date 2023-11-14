@@ -8,36 +8,38 @@ session_start();
 // checkCSRF('http://localhost/todolist/');
 
 if (isset($_POST['token']) && isset($_SESSION['token']) && hash_equals($_SESSION['token'], $_POST['token'])) {
-    // Récupération des données du formulaire
+    // get data form
     $token = $_POST['token'];
     $id_task = $_POST['id_task'];
     $selected_themes = $_POST['selected_themes'];
 
-    // Vérification si l'ID de tâche existe dans la table task
-    $checkTaskQuery = $connexion->prepare('SELECT COUNT(*) FROM task WHERE id_task = :id_task');
+    // check if id_task in $_POST exists in task table
+    $checkTaskQuery = $connexion->prepare('SELECT * FROM task WHERE id_task = :id_task');
     $checkTaskQuery->bindValue(':id_task', $id_task, PDO::PARAM_INT);
     $checkTaskQuery->execute();
-    $taskExists = $checkTaskQuery->fetchColumn();
+    $taskExists = $checkTaskQuery->fetch();
 
     if ($taskExists) {
+        $connexion->beginTransaction();
+
         // Insertion des liens avec les thèmes sélectionnés
         if (!empty($selected_themes)) {
-            $placeholders = rtrim(str_repeat('(?, ?), ', count($selected_themes)), ', ');
-            $query = $connexion->prepare("INSERT INTO `have` (id_task, id_theme) VALUES $placeholders");
+            $query = $connexion->prepare("INSERT INTO `have` (id_task, id_theme) VALUES (:id_task, :id_theme)");
 
-            foreach ($selected_themes as $index => $theme_id) {
-                $query->bindValue(2 * $index + 1, $id_task, PDO::PARAM_INT);
-                $query->bindValue(2 * $index + 2, $theme_id, PDO::PARAM_INT);
+            foreach ($selected_themes as $theme_id) {
+                $query->bindValue(':id_task', $id_task, PDO::PARAM_INT);
+                $query->bindValue(':id_theme', $theme_id, PDO::PARAM_INT);
+                $query->execute();
             }
 
-            $query->execute();
-
-            $_SESSION['notif'] = 'Liens entre la tâche et les thèmes ajoutés avec succès.';
+            $_SESSION['notif'] = 'Ajout des theme OK';
         } else {
             $_SESSION['error'] = 'Aucun thème sélectionné.';
         }
+
+        $connexion->commit();
     } else {
-        $_SESSION['error'] = 'L\'ID de tâche fourni n\'existe pas dans la table task.';
+        $_SESSION['error'] = 'L\'id_task n\'existe pas dans la table task.';
     }
 }
 

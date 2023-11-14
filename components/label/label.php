@@ -18,7 +18,3 @@
         <input type="hidden" id="task-value" name="id_task" value="">
     </form>
 </div>
-<!-- SELECT `theme_name`, `id_theme`, `id_task` FROM have
-JOIN task USING (id_task)
-JOIN theme USING (id_theme)
-ORDER BY theme_name DESC; -->
