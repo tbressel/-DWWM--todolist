@@ -11,9 +11,9 @@ if (!empty($taskList)) {
             <li class="main__container" data-id="<?= $task['id_task'] ?>">
                 <div class="left__container">
                     <div class="top__container">
-                        <a href="components/task/task_actions.php?action=todo&token=<?= $_SESSION['token'] ?>&id=<?= $task['id_task'] ?>">
-                            <span class="btn">✅</span>
-                        </a>
+                        <!-- <a href="components/task/task_actions.php?action=todo&token=<?= $_SESSION['token'] ?>&id=<?= $task['id_task'] ?>"><span class="btn">✅</span></a> -->
+                        <button class="js-todo-btn" type="button" data-id="<?= $task['id_task'] ?>">✅</button>
+
                         <div class="top__container--task_name">
                             <p><?= $task['task_name'] ?></p>
                         </div>

@@ -11,7 +11,14 @@ include 'includes/_dbconnect.php';
 session_start();
 generateToken();
 
+
+// var_dump($_SERVER);
+
+// checkCSRFAsync();
+
 ?>
+
+
 
 <body>
 
@@ -43,6 +50,7 @@ if (isset($_SESSION['error'])) {
 
 
 <script src="./assets/scripts/script.js"></script>
+<script src="./assets/scripts/functions.js"></script>
 
 </body>
 </html>

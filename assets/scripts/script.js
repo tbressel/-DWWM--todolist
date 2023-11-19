@@ -1,75 +1,104 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     let formState = false;
     let labelState = false;
 
-
-    // Listen to add new task button
+    // Listen to 'add a new task' button
     document.getElementById('new-btn').addEventListener('click', () => {
         toggleForm();
     })
 
+    // Listen to 'toggle done tasks / todo tasks' button
     document.getElementById('task-btn').addEventListener('click', () => {
         toggleTasks();
-
-
     })
-    document.getElementById('tasksList__container').addEventListener('click', (event) => {
+
+    //
+    document.getElementById('btn-actions').addEventListener('click', (event) => {
         const target = event.target;
         if (target.classList.contains('btn')) {
             toggleLabel();
             const attributeValue = target.getAttribute('data-id');
+            document.getElementById('task-value').setAttribute('value', attributeValue);
+        }
+    });
 
-            document.getElementById('task-value').setAttribute('value' , attributeValue);
+    // Listen to every "done tasks" button 
+    document.getElementById('tasksDone__container').addEventListener('click', (event) => {
+        if (event.target.getAttribute('class') === "js-todo-btn") {
+            const id = event.target.dataset.id;
+            fetchApi('todo', id, getToken());
+        }
+    });
 
+    // Listen to all button inside the task container
+    document.getElementById('tasksList__container').addEventListener('click', (event) => {
+        // console.log(event.target)
+
+        const id = parseInt(event.target.dataset.id);
+
+        if (isNaN(id)) return;
+
+        if (event.target.getAttribute('class') === "js-up-btn") {
+            fetchApi('up', id, getToken());
+
+        } else if (event.target.getAttribute('class') === "js-down-btn") {
+            fetchApi('down', id, getToken());
+
+        } else if (event.target.getAttribute('class') === "js-delete-btn") {
+            fetchApi('delete', id, getToken());
+
+        } else if (event.target.getAttribute('class') === "js-done-btn") {
+            fetchApi('done', id, getToken());
         }
     })
+});
+
+// function displayError() {
+//     const id = parseInt(event.target.dataset.id);
+//     if(isNaN(id)) return;
+// }
+
+// Listen to add form
+document.getElementById('formAdd').addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    const data = {
+        action: 'add',
+        token: getToken(),
+        task_name: this.querySelector('input[name="task_name"]').value
+    };
+
+    fetchAPI(data, "add", "POST");
+});
 
 
+// Listen to modify form
+document.querySelectorAll('.formModify').forEach(form => {
+ form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const data = {
+        action: 'modify',
+        token: getToken(),
+        new_task_name: this.querySelector('input[name="new_task_name"]').value,
+        id_task: this.querySelector('input[name="id_task"]').value
+    };
+    fetchAPI(data, "modify", "POST");
+});
+
+});
 
 
-
-
-    /**
-     * Close form if it's not hidden
-     */
-    function closeForm() {
-        document.getElementById('addform').classList.remove('active')
-    }
-
-    /**
-     * Close label list
-     */
-    function closeLabel() {
-        document.getElementById('labelList').classList.remove('active')
-    }
-
-
-    /**
-     * Make the add form visible or hide 
-    */
-    function toggleLabel() {
-        document.getElementById('labelList').classList.toggle('active')
-        labelState = !labelState;
-        closeForm();
-    }
-    
-    
-    /**
-     * Make the add form visible or hide 
-    */
-    function toggleForm() {
-        document.getElementById('addform').classList.toggle('active')
-        formState = !formState;
-        closeLabel();
-    }
-    
-    
-    /**
-     * Make tasks list to do visible or hidden
-    */
-    function toggleTasks() {
-        document.getElementById('tasksList__container').classList.toggle('hidden')
-        document.getElementById('tasksDone__container').classList.toggle('hidden')
-    }
-})
+// Listen to date form
+document.querySelectorAll('.formDate').forEach(form => {
+    form.addEventListener('submit', async function (event) {
+       event.preventDefault();
+       const data = {
+           action: 'date',
+           token: getToken(),
+           new_date: this.querySelector('input[name="new_date"]').value,
+           id_task: this.querySelector('input[name="id_task"]').value
+       };
+       fetchAPI(data, "date", "POST");
+   });
+   
+   });

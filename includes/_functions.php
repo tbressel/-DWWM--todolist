@@ -59,29 +59,33 @@ function generateToken():void {
     }
 }
 
-
 /**
- * check if token is created and if request doesn't come from another website
+ * Check for CSRF with referer and token
+ * Redirect to the given page in case of error
  *
- * @param string $url
+ * @param string $url The page to redirect
  * @return void
  */
-function checkCSRF(string $url): void 
+function checkCSRFAsync(): void
 {
     if (!isset($_SERVER['HTTP_REFERER']) || !str_contains($_SERVER['HTTP_REFERER'], 'http://localhost/todolist/')) {
-        $_SESSION['error'] = 'error_referer';
+        $error = 'error_referer';
     } else if (
-        !isset($_SESSION['token']) || !isset($_REQUEST['token']) || $_REQUEST['token'] !== $_SESSION['token'] || $_SESSION['tokenExpire'] < time()
+        !isset($_SESSION['token']) || !isset($_REQUEST['token'])
+        || $_REQUEST['token'] !== $_SESSION['token']
+        || $_SESSION['tokenExpire'] < time()
     ) {
-        $_SESSION['error'] = 'error_token';
+        $error = 'error_referer';
     }
-
-    if (isset($_SESSION['error'])) return;
+    if (!isset($error)) return;
     
-        header('Location: ' . $url);
-        exit;
-    }
-
+    echo json_encode([
+        'result' => false,
+        'message' => $error
+    ]);
+    
+    exit;
+}
 
 /**
  * get the max value from database
@@ -97,6 +101,8 @@ function checkCSRF(string $url): void
 //     // get data from query
 //     return $isOK ? $query->fetchColumn() : null;
 // }
+
+
  function getMaxOrder (PDO $connexion) : int {
      //  query prepare to get max value from task order column
      $query = $connexion->prepare('SELECT MAX(task_order)  AS max_order FROM task');

@@ -25,11 +25,13 @@ if (!empty($taskList)) {
                         echo '<div class="notification">ATTENTION il faut ' . $task['task_name'] . ' AUJOURD\'HUI </div>';
                     } ?>
                     <div class="top__container">
-                        <a href="components/task/task_actions.php?action=done&token=<?= $_SESSION['token'] ?>&id=<?= $task['id_task'] ?>"><span class="btn">☑️</span></a>
+                        <!-- <a href="components/task/task_actions.php?action=done&token=<?= $_SESSION['token'] ?>&id=<?= $task['id_task'] ?>"><span class="btn">☑️</span></a> -->
+                        <button class="js-done-btn" type="button" data-id="<?= $task['id_task'] ?>">☑️</button>
+
                         <p id="label-btn" data-id="<?= $task['id_task'] ?>" class="btn">🗃️</p>
                         <div class="top__container--task_name">
 
-                            <form action="components/task/task_actions.php" method="POST">
+                            <form class="formModify" method="POST">
                                 <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                                 <input type="hidden" name="id_task" value="<?= $task['id_task'] ?>">
                                 <input type="hidden" name="action" value="modify">
@@ -40,8 +42,8 @@ if (!empty($taskList)) {
                         </div>
                     </div>
                     <div class="remind_date">
-                        <form action="components/task/task_actions.php" method="POST">
-                            <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+                        <form class="formDate" method="POST">
+                            <input id="token" type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                             <input type="hidden" name="id_task" value="<?= $task['id_task'] ?>">
                             <input type="hidden" name="action" value="date">
                             <label for="new_date">Date de rappel:</label>
@@ -56,19 +58,23 @@ if (!empty($taskList)) {
 </li>
                 </ul>
                 </div>
-                <div class="right__container">
+                <div id="btn-actions" class="right__container">
 
                     <div class="right__container--arrows">
                         <p class="btn up_btn">
-                            <a href="components/task/change_order.php?action=up&id=<?= $task['id_task'] ?>">⬆️</a>
+                            <!-- <a href="components/task/change_order.php?action=up&id=<?= $task['id_task'] ?>">⬆️</a> -->
+                            <button class="js-up-btn" type="button" data-id="<?= $task['id_task'] ?>">⬆️</button>
                         </p>
                         <p class="task__action">
                         <div class="btn">
-                            <a href="components/task/task_actions.php?action=delete&token=<?= $_SESSION['token'] ?>&id=<?= $task['id_task'] ?>">🗑️</a>
+                    <!-- <a href="components/task/task_actions.php?action=delete&token=<?= $_SESSION['token'] ?>&id=<?= $task['id_task'] ?>">🗑️</a> -->
+
+                    <button class="js-delete-btn" type="button" data-id="<?= $task['id_task'] ?>">🗑️</button>
                         </div>
                         </p>
                         <p class="btn down_btn">
-                            <a href="components/task/change_order.php?action=down&id=<?= $task['id_task'] ?>">⬇️</a>
+                            <!-- <a href="components/task/change_order.php?action=down&id=<?= $task['id_task'] ?>">⬇️</a> -->
+                            <button class="js-down-btn" type="button" data-id="<?= $task['id_task'] ?>">⬇️</button>
                         </p>
                     </div>
                 </div>

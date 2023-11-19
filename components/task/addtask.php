@@ -4,9 +4,6 @@ getIdentification("../../.env");
 include '../../includes/_dbconnect.php';
 session_start();
 
-// checkCSRF('http://localhost/todolist/');
-
-
 
 // CSRF Verification
 if (isset($_POST['token']) && isset($_SESSION['token']) && hash_equals($_SESSION['token'], $_POST['token'])) {
