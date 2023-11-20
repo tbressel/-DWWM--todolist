@@ -17,12 +17,22 @@ CREATE TABLE theme(
    PRIMARY KEY(id_theme)
 );
 
+
+CREATE TABLE users(
+   id_users INT AUTO_INCREMENT,
+   nickname VARCHAR(50),
+   pass VARCHAR(50),
+   PRIMARY KEY(id_users)
+);
+
 CREATE TABLE have(
    id_task INT,
    id_theme INT,
-   PRIMARY KEY(id_task, id_theme),
+   id_users INT,
+   PRIMARY KEY(id_task, id_theme, id_users),
    FOREIGN KEY(id_task) REFERENCES task(id_task),
-   FOREIGN KEY(id_theme) REFERENCES theme(id_theme)
+   FOREIGN KEY(id_theme) REFERENCES theme(id_theme),
+   FOREIGN KEY(id_users) REFERENCES users(id_users)
 );
 
 INSERT INTO `task` (`id_task`, `task_name`, `task_state`, `task_order`, `task_date`) VALUES
@@ -40,3 +50,7 @@ INSERT INTO `theme` (`id_theme`,`theme_name`) VALUES
 (4,'recherche de stage'),
 (5,'revision'),
 (6,'vérification');
+
+INSERT INTO `users` (`nickname`, `pass`) VALUES 
+('zisquier', 'pass1'),
+('amstariga', 'pass2');

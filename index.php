@@ -20,6 +20,7 @@ generateToken();
 
 
 
+
 <body>
 
 <?php
@@ -37,6 +38,7 @@ if (isset($_SESSION['error'])) {
 <?php include './components/header/header.php';?>
 <?php include './components/form/form.php';?> 
 <?php include './components/label/label.php';?> 
+
 
 
 <div id="tasksList__container" class="">

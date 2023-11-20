@@ -71,34 +71,37 @@ document.getElementById('formAdd').addEventListener('submit', async function (ev
     fetchAPI(data, "add", "POST");
 });
 
+document.getElementById('tasksList__container').addEventListener('submit', async function (event) {
+  
+    if (event.target.classList.contains('formDate')) {
+             event.preventDefault();
 
-// Listen to modify form
-document.querySelectorAll('.formModify').forEach(form => {
- form.addEventListener('submit', async function (event) {
-    event.preventDefault();
-    const data = {
-        action: 'modify',
-        token: getToken(),
-        new_task_name: this.querySelector('input[name="new_task_name"]').value,
-        id_task: this.querySelector('input[name="id_task"]').value
-    };
-    fetchAPI(data, "modify", "POST");
+        const data = {
+            action: 'date',
+            token: getToken(),
+            new_date: event.target.querySelector('input[name="new_date"]').value,
+            id_task: event.target.querySelector('input[name="id_task"]').value
+        };
+
+        fetchAPI(data, "date", "POST");
+    }
+
+    if (event.target.classList.contains('formModify')) {
+        event.preventDefault();
+
+   const data = {
+       action: 'modify',
+       token: getToken(),
+       new_task_name: event.target.querySelector('input[name="new_task_name"]').value,
+       id_task: event.target.querySelector('input[name="id_task"]').value
+   };
+
+   fetchAPI(data, "modify", "POST");
+}
+
+
+
+
 });
 
-});
 
-
-// Listen to date form
-document.querySelectorAll('.formDate').forEach(form => {
-    form.addEventListener('submit', async function (event) {
-       event.preventDefault();
-       const data = {
-           action: 'date',
-           token: getToken(),
-           new_date: this.querySelector('input[name="new_date"]').value,
-           id_task: this.querySelector('input[name="id_task"]').value
-       };
-       fetchAPI(data, "date", "POST");
-   });
-   
-   });
